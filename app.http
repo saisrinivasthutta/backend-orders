@@ -3,7 +3,7 @@ Content-Type: application/json
 
 {   
       "seller_price": 100,
-      "seller_qty": 2
+      "seller_qty": 20
 }
 
 ###
@@ -11,8 +11,8 @@ POST http://localhost:3000/buyer-orders
 Content-Type: application/json
 
 {   
-      "buyer_price": 99,
-      "buyer_qty": 4
+      "buyer_price": 100,
+      "buyer_qty": 20
 }
 
 ###
@@ -31,6 +31,6 @@ POST http://localhost:3000/match-orders
 Content-Type: application/json
 
 {   
-      "buyer_price": 10,
-      "buyer_qty": 2
+      "buyer_price": 100,
+      "buyer_qty": 20
 }

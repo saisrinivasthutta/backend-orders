@@ -1,9 +1,16 @@
 const express = require("express");
 const path = require("path");
+const cors = require("cors");
 
 const { open } = require("sqlite");
 const sqlite3 = require("sqlite3").verbose();
+const corsOptions = {
+  origin: "http://localhost:3000", // Allow only requests from this origin
+  methods: "GET,POST", // Allow only these methods
+  allowedHeaders: ["Content-Type", "Authorization"], // Allow only these headers
+};
 const app = express();
+app.use(cors(corsOptions));
 app.use(express.json());
 
 const dbPath = path.join(__dirname, "orders.db");
@@ -18,7 +25,7 @@ const initializeDBAndServer = async () => {
       console.log("Server Running at http://localhost:3000/");
     });
   } catch (e) {
-    console.log(`DB Error: ${e.message}`);
+    //console.log(`DB Error: ${e.message}`);
     process.exit(1);
   }
 };
@@ -239,5 +246,5 @@ app.post("/match-orders", (req, res) => {
 });
 
 app.get("/", (request, response) => {
-  response.send("Hello World!");
+  response.send("Hi");
 });
